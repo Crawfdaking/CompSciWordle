@@ -11,18 +11,17 @@ void displayGuesses();
 string pickWordToGuess(vector<string>);
 string getGuess();
 void parseGuess(string, string);
+string toLowerCase(string);
 int main(){
 	string file = "Test";
 	initDisplay();
 	vector<string> words = readFile(file);
-	string wordToGuess = pickWordToGuess(words);
+	string wordToGuess = "truck"; //toLowerCase(pickWordToGuess(words));
 	displayGuesses();
-	string guess = getGuess();
-	cout << guess;
+	string guess = toLowerCase(getGuess());
 	parseGuess(guess, wordToGuess);
 
 }
-
 
 vector<string> readFile(string fileName){
 	ifstream inputFile;
@@ -49,12 +48,11 @@ void initDisplay(){
 	}
 }
 
-
 void displayGuesses(){
 	int size = 5;
 	for(int i = 0 ; i < size; i++){
 		for(int j = 0; j < size; j++){
-			cout << setw(3) << "h^";
+			cout << setw(3) << "_";
 		}
 	cout << endl;
 	}
@@ -78,4 +76,13 @@ string getGuess(){
 
 void parseGuess(string guess, string wordToGuess){
 
+}
+
+string toLowerCase(string word){
+	for(int i = 0; i < word.length(); i++){
+		if(word[i] >= 65 && word[i] <= 90){
+			word[i] = (char) ((int) word[i] + 32);
+		}
+	}
+	return word;
 }
