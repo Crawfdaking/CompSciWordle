@@ -74,8 +74,33 @@ string getGuess(){
 
 }
 
-void parseGuess(string guess, string wordToGuess){
-
+void parseGuess(const string guess, const string wordToGuess){
+	const char correct = '^';		//Correct letter and placement
+	const char wrongPlace = '*'; 	//Correct letter but wrong placement
+	const char wrong = 'X'; 		//Letter does not exist
+	const int width = 2;
+	
+	for(int i = 0; i < guess.length(); i++){
+		bool correctLetterPlace = false;
+		bool correctLetterWrongPlace = false;
+		for(int j = 0; j < wordToGuess.length(); j++){
+			if(guess[i] == wordToGuess[j] && i == j){
+				correctLetterPlace = true;
+			}
+			else if (guess[i] == wordToGuess[j]){
+				correctLetterWrongPlace = true;
+			} 
+		}
+		if(correctLetterPlace){
+			cout << setw(width) << correct << guess[i];
+		}
+		else if(correctLetterWrongPlace){
+			cout << setw(width) << wrongPlace << guess[i];
+		}
+		else{
+			cout << setw(width) << wrong << guess[i];
+		}
+	}
 }
 
 string toLowerCase(string word){
