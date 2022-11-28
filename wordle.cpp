@@ -4,7 +4,7 @@
 #include<fstream>
 #include<string>
 #include<vector>
-using namespace std;
+#include"tests.cpp"
 void initDisplay();
 vector<string> readFile(string);
 void displayGuesses();
@@ -12,16 +12,7 @@ string pickWordToGuess(vector<string>);
 string getGuess();
 void parseGuess(string, string);
 string toLowerCase(string);
-int main(){
-	string file = "Test";
-	initDisplay();
-	vector<string> words = readFile(file);
-	string wordToGuess = "truck"; //toLowerCase(pickWordToGuess(words));
-	displayGuesses();
-	string guess = toLowerCase(getGuess());
-	parseGuess(guess, wordToGuess);
-
-}
+int getMenuInput();
 
 vector<string> readFile(string fileName){
 	ifstream inputFile;
@@ -35,17 +26,18 @@ vector<string> readFile(string fileName){
 	return words;
 }
 
-void initDisplay(){
+int getMenuInput(){
 	int option = 0;
-	cout << "Welcome to Worldle. To begin the game press 1 or to exit press 2: ";
 	cin >> option;
-	while(option < 1 || option > 2){
-		cout << "Sorry that is not a valid option. Please press 1 to start game or 2 to exit: ";
+	while(option < 1 || option > 3){
+		cout << "Sorry that is not a valid option. Please press 1 to start game, 2 to run automated tests, 3 to exit: ";
 		cin >> option;
 	}
-	if(option == 2){
-		exit(0);
-	}
+	return option;
+}
+
+void initDisplay(){
+	cout << "Welcome to Worldle. To begin the game press 1, press 2 to run tests, press 3 to exit: ";
 }
 
 void displayGuesses(){
