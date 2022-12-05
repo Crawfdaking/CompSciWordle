@@ -6,6 +6,7 @@
 #include<vector>
 #include"tests.cpp"
 void initDisplay();
+bool isValidInput(string);
 vector<string> readFile(string);
 void displayGuesses();
 string pickWordToGuess(vector<string>);
@@ -71,7 +72,7 @@ void parseGuess(const string guess, const string wordToGuess){
 	const char wrongPlace = '*'; 	//Correct letter but wrong placement
 	const char wrong = 'X'; 		//Letter does not exist
 	const int width = 2;
-	
+
 	for(int i = 0; i < guess.length(); i++){
 		bool correctLetterPlace = false;
 		bool correctLetterWrongPlace = false;
@@ -81,7 +82,7 @@ void parseGuess(const string guess, const string wordToGuess){
 			}
 			else if (guess[i] == wordToGuess[j]){
 				correctLetterWrongPlace = true;
-			} 
+			}
 		}
 		if(correctLetterPlace){
 			cout << setw(width) << correct << guess[i];
@@ -102,4 +103,14 @@ string toLowerCase(string word){
 		}
 	}
 	return word;
+}
+
+//Makes sure word correct length and has only letters and no spaces
+bool isValidInput(string guess){
+	for(int i = 0; i < guess.length(); i++){
+		if(guess.length() > 5 || guess[i] < 65 || guess[i] >  90 && guess[i] < 97){
+			return false;
+		}
+	}
+	return true;
 }
