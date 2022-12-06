@@ -6,7 +6,7 @@ int main(){
 	int option = getMenuInput();
 	if(option == 1){
 		vector<string> words = readFile(file);
-		string wordToGuess = "truck"; //toLowerCase(pickWordToGuess(words));
+		string wordToGuess = toLowerCase(pickWordToGuess(words));
 		displayGuesses();
 		string guess = toLowerCase(getGuess());
 		parseGuess(guess, wordToGuess);
