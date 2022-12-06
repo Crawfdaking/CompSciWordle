@@ -10,6 +10,7 @@ void displayGuesses();
 string pickWordToGuess(vector<string>);
 string getGuess();
 string parseGuess(const string, const string);
+bool validateGuess(const string, const string);
 string toLowerCase(string);
 int getMenuInput();
 void debugMain();

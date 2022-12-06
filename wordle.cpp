@@ -12,6 +12,7 @@ void displayGuesses();
 string pickWordToGuess(vector<string>);
 string getGuess();
 string parseGuess(const string, const string);
+bool validateGuess(const string, const string);
 string toLowerCase(string);
 int getMenuInput();
 
@@ -117,4 +118,14 @@ bool isValidInput(string guess){
 		}
 	}
 	return true;
+}
+
+// check guess if it's correct or not
+bool validateGuess(const string guess, const string WordToGuess){
+	if(guess.compare(WordToGuess) == 0){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
