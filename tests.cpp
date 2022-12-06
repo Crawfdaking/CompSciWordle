@@ -9,7 +9,7 @@ vector<string> readFile(string);
 void displayGuesses();
 string pickWordToGuess(vector<string>);
 string getGuess();
-void parseGuess(string, string);
+string parseGuess(const string, const string);
 string toLowerCase(string);
 int getMenuInput();
 void debugMain();

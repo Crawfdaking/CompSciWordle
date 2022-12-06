@@ -9,7 +9,7 @@ int main(){
 		string wordToGuess = toLowerCase(pickWordToGuess(words));
 		displayGuesses();
 		string guess = toLowerCase(getGuess());
-		parseGuess(guess, wordToGuess);
+		cout << parseGuess(guess, wordToGuess);
 	} else if (option == 2) {
 		debugMain();
 

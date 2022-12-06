@@ -11,7 +11,7 @@ vector<string> readFile(string);
 void displayGuesses();
 string pickWordToGuess(vector<string>);
 string getGuess();
-void parseGuess(string, string);
+string parseGuess(const string, const string);
 string toLowerCase(string);
 int getMenuInput();
 
@@ -67,12 +67,12 @@ string getGuess(){
 
 }
 
-void parseGuess(const string guess, const string wordToGuess){
-	const char correct = '^';		//Correct letter and placement
-	const char wrongPlace = '*'; 	//Correct letter but wrong placement
-	const char wrong = 'X'; 		//Letter does not exist
-	const int width = 2;
-
+//Add symbols to word to indicate its correctness
+string parseGuess(const string guess, const string wordToGuess){
+	// ^ = Correct letter and placement
+	// * = Correct letter but wrong placement
+	// X = Letter does not exist
+	string guessWithSymbols = "";
 	for(int i = 0; i < guess.length(); i++){
 		bool correctLetterPlace = false;
 		bool correctLetterWrongPlace = false;
@@ -85,15 +85,19 @@ void parseGuess(const string guess, const string wordToGuess){
 			}
 		}
 		if(correctLetterPlace){
-			cout << setw(width) << correct << guess[i];
+			guessWithSymbols.append(" ^");
+			guessWithSymbols.append(1, guess[i]);
 		}
 		else if(correctLetterWrongPlace){
-			cout << setw(width) << wrongPlace << guess[i];
+			guessWithSymbols.append(" *");
+			guessWithSymbols.append(1, guess[i]);
 		}
 		else{
-			cout << setw(width) << wrong << guess[i];
+			guessWithSymbols.append(" X");
+			guessWithSymbols.append(1, guess[i]);
 		}
 	}
+	return guessWithSymbols;
 }
 
 string toLowerCase(string word){
