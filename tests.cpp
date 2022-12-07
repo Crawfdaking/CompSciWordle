@@ -25,7 +25,6 @@ void debugMain(){
 	if(testIsValidInput()){
 		cout << "All isVaildInput tests PASSED" << endl;
 	}
-	testParseGuess();
 }
 
 bool testToLowerCase(){
