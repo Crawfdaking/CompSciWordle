@@ -1,7 +1,7 @@
 using namespace std;
 #include"wordle.cpp"
 int main(){
-	string file = "Test";
+	string file = "wordlist";
 	string guessesWithSymbols[5];
 	initDisplay();
 	int option = getMenuInput();
