@@ -6,7 +6,7 @@ void time(){
 }
 void playagain(){
 	cout<<"you can play again after midnight ;)"<<endl;
-	break;
+	exit(0);
 }
 void streak(){
   rightguess=answer;
