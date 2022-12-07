@@ -1,7 +1,7 @@
 using namespace std;
 #include"wordle.cpp"
 int main(){
-	string file = "Test";
+	string file = "wordlist";
 	string guessesWithSymbols[5];
 	initDisplay();
 	int option = getMenuInput();
@@ -16,7 +16,13 @@ int main(){
 			}
 			guessesWithSymbols[i] = parseGuess(guess, wordToGuess);
 			displayGuesses(guessesWithSymbols);
+			if(validateGuess(guess, wordToGuess)){
+				cout << "You win! It took you " << i << " attempt(s) to guess the word" << endl;
+				break;
+			}
+
 		}
+		cout << "You lost. The word was " << wordToGuess << ". Try again tomorrow." << endl;
 	} else if (option == 2) {
 		debugMain();
 

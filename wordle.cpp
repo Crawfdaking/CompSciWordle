@@ -39,7 +39,12 @@ int getMenuInput(){
 }
 
 void initDisplay(){
-	cout << "Welcome to Worldle. To begin the game press 1, press 2 to run tests, press 3 to exit: ";
+	cout << "Welcome to Worldle!" << endl;
+	cout << "When you begin the game and enter a guess one of three symbols will appear in front of each letter of your guess." << endl <<
+	"\"^\" means the letter placement matches perfectly," << endl <<
+	"\"*\" means the letter is somewhere in the word," << endl <<
+	"and \"X\" means the letter is nowhere in the word." << endl <<
+	"To begin the game press 1, press 2 to run auto tests, and press 3 to exit: ";
 }
 
 void displayGuesses(string guessesWithSymbols[5]){

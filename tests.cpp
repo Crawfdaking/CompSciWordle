@@ -16,7 +16,6 @@ int getMenuInput();
 void debugMain();
 bool testToLowerCase();
 bool testIsValidInput();
-bool testParseGuess();
 void debugMain(){
 	cout << "Testing toLowerCase function:" << endl;
 	if(testToLowerCase()){
@@ -82,8 +81,3 @@ bool testIsValidInput(){
 
 }
 
-bool testParseGuess(){
-	vector<string> words = readFile("Test");
-	string word = pickWordToGuess(words);
-	return false;
-}
