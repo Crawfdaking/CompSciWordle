@@ -19,7 +19,6 @@ int main(){
 			displayGuesses(guessesWithSymbols);
 			if(validateGuess(guess, wordToGuess)){
 				cout << "You win! It took you " << i << " attempt(s) to guess the word" << endl;
-				streak();
 				playagain();
 				break;
 			}
