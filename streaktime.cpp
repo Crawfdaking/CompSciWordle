@@ -9,9 +9,9 @@ void playagain(){
 	exit(0);
 }
 void streak(){
-  rightguess=answer;
+  correctLetterPlace=answer;
   int LongerStreak = 0, CurrentStreak = 0;
-if(answer == result)
+if(answer == true)
     CurrentStreak++;
 else
     CurrentStreak = 0;
