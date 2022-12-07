@@ -8,9 +8,9 @@
 void initDisplay();
 bool isValidInput(string);
 vector<string> readFile(string);
-void displayGuesses();
+void displayGuesses(string[5]);
 string pickWordToGuess(vector<string>);
-string getGuess();
+string getGuess(string);
 string parseGuess(const string, const string);
 bool validateGuess(const string, const string);
 string toLowerCase(string);
@@ -42,11 +42,16 @@ void initDisplay(){
 	cout << "Welcome to Worldle. To begin the game press 1, press 2 to run tests, press 3 to exit: ";
 }
 
-void displayGuesses(){
+void displayGuesses(string guessesWithSymbols[5]){
 	int size = 5;
 	for(int i = 0 ; i < size; i++){
 		for(int j = 0; j < size; j++){
-			cout << setw(3) << "_";
+			if(guessesWithSymbols[i] == ""){
+				cout << setw(3) << "_";
+			} else{
+				cout << guessesWithSymbols[i];
+				break;
+			}
 		}
 	cout << endl;
 	}
@@ -60,10 +65,15 @@ string pickWordToGuess(vector<string> words){
 
 }
 
-string getGuess(){
+string getGuess(string message){
+	static int count = 0;
 	string guess = "";
-	cout << "Please enter your guess: ";
-	cin >> guess;
+	cout << message << ": ";
+	if(count == 0){
+		cin.ignore();
+	}
+	getline(cin, guess);
+	count++;
 	return guess;
 
 }
@@ -110,10 +120,10 @@ string toLowerCase(string word){
 	return word;
 }
 
-//Makes sure word correct length and has only letters and no spaces
+//Makes sure word is correct length and has only letters and no spaces
 bool isValidInput(string guess){
 	for(int i = 0; i < guess.length(); i++){
-		if(guess.length() > 5 || guess[i] < 65 || guess[i] >  90 && guess[i] < 97){
+		if(guess.length() < 5 || guess.length() > 5 || guess[i] < 65 || guess[i] >  90 && guess[i] < 97){
 			return false;
 		}
 	}
