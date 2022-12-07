@@ -141,6 +141,13 @@ bool isValidInput(string guess){
 bool validateGuess(const string guess, const string WordToGuess){
 	if(guess.compare(WordToGuess) == 0){
 		return true;
+		int LongerStreak = 0, CurrentStreak = 0;
+if(guess == true)
+    CurrentStreak++;
+else
+    CurrentStreak = 0;
+if(CurrentStreak > LongerStreak)
+    LongerStreak = CurrentStreak;
 	}
 	else{
 		return false;
