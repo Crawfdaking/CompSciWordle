@@ -152,6 +152,7 @@ bool validateGuess(const string guess, const string WordToGuess){
 	}
 	else{
 		lastStreak = currentStreak;
+		currentStreak=0;
 		return false;
 	}
 	writeStreak(currentStreak, lastStreak);
