@@ -4,6 +4,8 @@
 #include<fstream>
 #include<string>
 #include<vector>
+#include<chrono>
+#include<ctime>
 #include"tests.cpp"
 void initDisplay();
 bool isValidInput(string);
