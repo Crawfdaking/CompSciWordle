@@ -1,4 +1,5 @@
 #using namespace std;
+void streak(){
 int LongerStreak = 0, CurrentStreak = 0;
 	if(answer == result)
 	    CurrentStreak++;
@@ -6,3 +7,4 @@ int LongerStreak = 0, CurrentStreak = 0;
 	    CurrentStreak = 0;
 	if(CurrentStreak > LongerStreak)
 	    LongerStreak = CurrentStreak;
+}
