@@ -20,13 +20,14 @@ int main(){
 			displayGuesses(guessesWithSymbols);
 			if(validateGuess(guess, wordToGuess)){
 				cout << "You win! It took you " << i << " attempt(s) to guess the word" << endl;
-				payagain();
+				streak();
+				playagain();
 				break;
 			}
 
 		}
 		cout << "You lost. The word was " << wordToGuess << ". Try again tomorrow." << endl;
-		payagain();
+		playagain();
 	} else if (option == 2) {
 		debugMain();
 
