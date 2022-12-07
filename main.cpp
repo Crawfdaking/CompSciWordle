@@ -13,7 +13,7 @@ int main(){
 		for(int i = 0; i < 5; i++){
 			string guess = getGuess("Please enter your guess");
 			while(!isValidInput(guess)){
-				guess = getGuess("Your guess must be exactly 5 letter and contain no spaces or anyother character. Please re-eneter your guess");
+				guess = getGuess("Your guess must be exactly 5 letter and contain no spaces or any other character. Please re-eneter your guess");
 			}
 			guessesWithSymbols[i] = parseGuess(guess, wordToGuess);
 			displayGuesses(guessesWithSymbols);
