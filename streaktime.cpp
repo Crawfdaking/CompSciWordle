@@ -8,12 +8,3 @@ void playagain(){
 	cout<<"you can play again after midnight ;)"<<endl;
 	exit(0);
 }
-void streak(){
-int LongerStreak = 0, CurrentStreak = 0;
-if(guess == true)
-    CurrentStreak++;
-else
-    CurrentStreak = 0;
-if(CurrentStreak > LongerStreak)
-    LongerStreak = CurrentStreak;
-}
