@@ -11,7 +11,7 @@ int main(){
 		string wordToGuess = toLowerCase(pickWordToGuess(words));
 		displayGuesses(guessesWithSymbols);
 		for(int i = 0; i < 5; i++){
-			string guess = getGuess("Please enter your guess");
+			string guess = toLowerCase(getGuess("Please enter your guess"));
 			while(!isValidInput(guess)){
 				guess = getGuess("Your guess must be exactly 5 letter and contain no spaces or any other character. Please re-eneter your guess");
 			}
