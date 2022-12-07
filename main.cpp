@@ -1,8 +1,10 @@
 using namespace std;
 #include"wordle.cpp"
+#include "streaktime.cpp"
 int main(){
 	string file = "wordlist";
 	string guessesWithSymbols[5];
+	time();
 	initDisplay();
 	int option = getMenuInput();
 	if(option == 1){
@@ -18,11 +20,13 @@ int main(){
 			displayGuesses(guessesWithSymbols);
 			if(validateGuess(guess, wordToGuess)){
 				cout << "You win! It took you " << i << " attempt(s) to guess the word" << endl;
+				payagain();
 				break;
 			}
 
 		}
 		cout << "You lost. The word was " << wordToGuess << ". Try again tomorrow." << endl;
+		payagain();
 	} else if (option == 2) {
 		debugMain();
 
