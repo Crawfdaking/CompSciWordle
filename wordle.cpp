@@ -7,6 +7,7 @@
 #include<chrono>
 #include<ctime>
 #include"tests.cpp"
+#include"streaktime.cpp"
 void initDisplay();
 bool isValidInput(string);
 vector<string> readFile(string);
@@ -17,6 +18,9 @@ string parseGuess(const string, const string);
 bool validateGuess(const string, const string);
 string toLowerCase(string);
 int getMenuInput();
+void writeStreak(int currentStreak, int lastStreak);
+int readStreak(int *lastStreak);
+const string file = "streak";
 
 vector<string> readFile(string fileName){
 	ifstream inputFile;
@@ -139,11 +143,37 @@ bool isValidInput(string guess){
 
 // check guess if it's correct or not
 bool validateGuess(const string guess, const string WordToGuess){
+	int currentStreak = 0;
+	int lastStreak = 0;
+	currentStreak = readStreak(&lastStreak);
 	if(guess.compare(WordToGuess) == 0){
+		currentStreak++;
 		return true;
-		int LongerStreak = 0, CurrentStreak = 0;
 	}
 	else{
+		lastStreak = currentStreak;
 		return false;
 	}
+	writeStreak(currentStreak, lastStreak);
+}
+
+
+void writeStreak(int currentStreak, int lastStreak){
+	ofstream write;
+	write.open(file);
+	write << currentStreak << endl;
+	write << lastStreak << endl;
+	write.close();
+}
+
+int readStreak(int *lastStreak = nullptr){
+	ifstream read;
+	read.open(file);
+	int currentStreak = 0;
+	read >> currentStreak;
+	if(lastStreak != nullptr)
+		read >> *lastStreak;
+	read.close();
+	return currentStreak;
+
 }

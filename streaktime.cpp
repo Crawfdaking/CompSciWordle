@@ -8,3 +8,4 @@ void playagain(){
 	cout<<"you can play again after midnight ;)"<<endl;
 	exit(0);
 }
+

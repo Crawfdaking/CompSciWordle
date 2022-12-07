@@ -19,7 +19,7 @@ int main(){
 			displayGuesses(guessesWithSymbols);
 			if(validateGuess(guess, wordToGuess)){
 				cout << "You win! It took you " << i << " attempt(s) to guess the word" << endl;
-				cout<<"your current streak is: "<<currentstreak<<endl;
+				cout<<"your current streak is: "<<readStreak()<<endl;
 				playagain();
 				break;
 			}
