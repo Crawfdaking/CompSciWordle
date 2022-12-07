@@ -1,6 +1,5 @@
 using namespace std;
 #include"wordle.cpp"
-#include "streaktime.cpp"
 int main(){
 	string file = "wordlist";
 	string guessesWithSymbols[5];
